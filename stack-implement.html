@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Stack Implement</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+  <div class="jumbotron">
+  
+    <div class="form-group">
+        </br>
+      <label class="control-label col-sm-3" for="size"><h3>Stack</h3></label><hr>
+      
+      
+      <div class="form-group text-center">
+        <div class="form-horizontal">
+        <label class="control-label col-sm-1" for="push">PUSH</label>
+        <div class="col-lg-2">
+          <input type="text" class="form-control" id="push">
+        </div>
+        <div class="col-sm-1">
+          <button class="btn btn-sm-2" onclick="pushstack()" for="push">PUSH</button>
+        </div>
+        <div class="col-sm-1">
+          <button class="btn btn-lg-2" for="pop" onclick="popstack()">POP</button>
+        </div>
+      </div></br></br>
+
+      
+    
+    <div class="col-sm-4 ">
+        <textarea class="form-control" rows="5" id="currentstatus"></textarea>
+    </div>
+    
+
+</div>
+</div>
+</br></br></br>
+
+<script>
+    var stack = [] ;
+    var i=0,k=0;
+    function stackcreate(){
+        var x=document.getElementById("createbtn").value;
+        //stack.length=parseInt(x);
+        console.log(stack.length);
+    }
+            function pushstack(){
+                var v=document.getElementById("push").value;
+                stack.push(v);
+                document.getElementById('push').value = "";
+                document.getElementById("currentstatus").innerHTML = stack; 
+                console.log(stack);
+            }
+             
+
+        function popstack(){
+            stack.pop();
+            document.getElementById("currentstatus").innerHTML = stack;
+            console.log(stack);
+
+        }  
+</script>
+</body>
+</html>
