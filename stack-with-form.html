@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Stack Implement</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<body onload="myFunc()">
+    <hr>
+    <form>
+        <div class="form-group">
+            </br>
+            <label class="control-label col-sm-3" for="size"><h1>STACK</h1></label></br>
+            
+
+            <div class="form-group text-center">
+                <div class="form-horizontal">
+                    <label class="control-label col-sm-1" for="push">PUSH</label>
+                    <div class="col-lg-2">
+                        <input type="text" class="form-control" id="push">
+                    </div>
+                    <div class="col-sm-1">
+                        <button type="button" class="btn btn-sm-2" onclick="pushstack()" for="push">PUSH</button>
+                    </div>
+
+                    <div class="col-sm-1">
+                        <button type="button" class="btn btn-lg-2" id="pop" onclick="popstack()">POP</button>
+                    </div>
+
+                    <div class="col-sm-1">
+                        <button type="button" class="btn btn-lg-2" id="popindex" onclick="popindeX()">POP INDEX</button>
+                    </div>
+                </div>
+            </div></br></br>
+
+                <div class="form-group">
+                    <div class="form-horizontal">
+                        <label class="control-label col-sm-4" for="size">STATUS</label>
+                        <div class="col-lg-3 ">
+                            <textarea class="form-control" rows="2" id="currentstatus"></textarea>
+                        </div>
+                        
+                        <div class="col-lg-1 ">
+                            <input class="form-control" id="index" placeholder="index"></input>
+                        </div>
+                    </div>
+                </div>
+
+            
+        </div>
+    </form></br></br>
+    <hr>
+<script>
+    var stack = [];
+    
+    function myFunc() {
+        if(!stack.length)
+        modechange();
+    }
+
+    function pushstack(){
+        var v=document.getElementById("push").value;
+        stack.push(v);
+        if(stack.length){
+            modereverse();
+        }
+        document.getElementById('push').value = "";
+        document.getElementById("currentstatus").innerHTML = stack; 
+        console.log(stack);
+    }
+        
+    function modechange(){
+        document.getElementById("pop").disabled=true;
+        document.getElementById("popindex").disabled=true;
+    }
+
+    function modereverse(){
+        document.getElementById("pop").disabled=false;
+        document.getElementById("popindex").disabled=false;
+    }
+
+    function popstack(){
+        if(!stack.length){
+            modechange();
+            document.getElementById("currentstatus").innerHTML = stack;
+        }
+        else{
+            modereverse();
+            stack.pop();
+            document.getElementById("currentstatus").innerHTML = stack;
+        }
+        
+        console.log(stack);
+    } 
+
+    function popindeX(){
+        var a=document.getElementById("index").value;
+        var x = stack.indexOf(a);
+        if(x>-1){
+            stack.splice(x,1);
+            document.getElementById("currentstatus").innerHTML = stack;
+        }
+        else{
+            alert('Element not found!!!');
+            document.getElementById('push').value = "";
+        }
+    }
+
+</script>
+</body>
+</html>
